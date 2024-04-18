@@ -15,10 +15,10 @@ jobs:
       - name: Publish the image to GitHub Container Registry
         run: |
           echo ${{ secrets.ACCESS_TOKEN }} | docker login --username Sarthak1904 --password-stdin ghcr.io  
-          docker build -t ghcr.io/sarthak1904/arithmetic-service:1 --file Dockerfile .
-          docker push ghcr.io/sarthak1904/arithmetic-service:1
+          docker build -t ghcr.io/sarthak1904/arithmetic:1 --file Dockerfile .
+          docker push ghcr.io/sarthak1904/arithmetic:1
       - name: Publish the image to Azure Container Registry
         run: |
           echo ${{ secrets.AZURE_CONTAINER_REGISTRY }} | docker login --username practicum15 --password-stdin practicum6.azurecr.io
-          docker tag ghcr.io/sarthak1904/arithmetic-service:1 practicum6.azurecr.io/arithmetic-service:1
+          docker tag ghcr.io/sarthak1904/arithmetic:1 practicum6.azurecr.io/arithmetic:1
           docker push practicum6.azurecr.io/arithmetic-service:1
